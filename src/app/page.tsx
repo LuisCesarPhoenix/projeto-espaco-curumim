@@ -1,3 +1,4 @@
+/*
 import Image from "next/image";
 
 export default function Home() {
@@ -98,6 +99,78 @@ export default function Home() {
           Go to nextjs.org →
         </a>
       </footer>
+    </div>
+  );
+}
+*/
+
+// src/app/page.tsx
+'use client'; // Indica que este é um Componente Cliente
+
+import { useEffect, useRef } from 'react';
+// import Navbar from '@/components/Navbar'; // Importa o componente Navbar
+import Footer from '@/components/Footer'; // Importa o componente Footer
+
+export default function Home() {
+  const headerRef = useRef<HTMLElement>(null);
+
+  // Efeito para a animação fade-in do header
+  useEffect(() => {
+    const headerElement = headerRef.current;
+    if (headerElement) {
+      // Set initial state for fade-in
+      headerElement.style.opacity = '0';
+      headerElement.style.transition = 'opacity 0.6s ease-in';
+
+      const fadeInOnScroll = () => {
+        const elementTop = headerElement.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 100) {
+          headerElement.style.opacity = '1';
+        }
+      };
+
+      // Trigger on load
+      fadeInOnScroll();
+
+      // Add scroll listener
+      window.addEventListener('scroll', fadeInOnScroll);
+
+      // Cleanup listener on component unmount
+      return () => {
+        window.removeEventListener('scroll', fadeInOnScroll);
+      };
+    }
+  }, []);
+
+  return (
+    <div className="font-sans bg-gray-50">
+      {/* <Navbar /> */} 
+
+      {/* Hero Section */}
+      <header
+        ref={headerRef} // Atribui a ref para controlar a animação
+        className="bg-gradient-to-r from-amber-500 to-amber-600 text-white mt-16"
+      >
+        <div className="container mx-auto px-4 py-20 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Nosso Blog</h1>
+          <p className="text-xl max-w-2xl mx-auto">Histórias inspiradoras, notícias e reflexões sobre nosso trabalho</p>
+        </div>
+      </header>
+
+      {/* Conteúdo principal da página - O HTML original não tinha conteúdo principal aqui,
+          mas você adicionaria os posts do blog, categorias, etc., nesta seção.
+          Por exemplo:
+          <main className="container mx-auto px-4 py-8">
+            <h2 className="text-3xl font-bold text-gray-800 mb-8">Últimas Publicações</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              // Aqui iriam os cards do blog
+            </div>
+          </main>
+      */}
+
+      <Footer />
     </div>
   );
 }
