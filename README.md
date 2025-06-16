@@ -189,28 +189,38 @@ PS C:\Users\cesar\Documents\Documentos B\nome-do-projeto\dominando-nextjs> code 
 
 ## Rodar o servidor para iniciar a aplicação
 
-Clique com o botão direito na raiz do projeto, escolha a opção open in integrated terminal e digite o comando:
+### Clique com o botão direito na raiz do projeto, escolha a opção open in integrated terminal e digite o comando:
+```bash
 npm run dev (rodar o comando run em modo de desenvolvimento)
+```
 
+## Instala o núcleo do FontAwesome, que é essencial para gerenciar os ícones e sua renderização no React.
+```bash
 npm install --save @fortawesome/fontawesome-svg-core 
-# Instala o núcleo do FontAwesome, que é essencial para gerenciar os ícones e sua renderização no React.
+```
 
-npm install --save @fortawesome/free-solid-svg-icons 
-# Instala o pacote de ícones de estilo sólido (solid), como casa, telefone, envelope, etc.
+## Instala o pacote de ícones de estilo sólido (solid), como casa, telefone, envelope, etc.
+```bash
+npm install --save @fortawesome/free-solid-svg-icons
+```
 
-npm install --save @fortawesome/free-brands-svg-icons 
-# Instala o pacote de ícones de marcas, como Facebook, Instagram, YouTube, LinkedIn e outros.
+## Instala o pacote de ícones de marcas, como Facebook, Instagram, YouTube, LinkedIn e outros.
+```bash
+npm install --save @fortawesome/free-brands-svg-icons
+``` 
 
-npm install --save @fortawesome/react-fontawesome 
-# Instala o componente React que permite usar os ícones do FontAwesome de forma declarativa nos seus componentes React.
+## Instala o componente React que permite usar os ícones do FontAwesome de forma declarativa nos seus componentes React.
+```bash
+npm install --save @fortawesome/react-fontawesome
+```
 
 ## Verifique se o TailwindCSS está instalado corretamente:
 
-# Execute: 
+### Execute: 
 npm list tailwindcss
 
-# Se aparecer erro ou não estiver listado, reinstale:
+### Se aparecer erro ou não estiver listado, reinstale:
 npm install -D tailwindcss
 
-# limpar o cache do npm:
+### limpar o cache do npm:
 npm cache clean --force
