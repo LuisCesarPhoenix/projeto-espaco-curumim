@@ -20,6 +20,32 @@ projeto_espaco_curumim/
 ├── package.json  
 └── tsconfig.json  
 
+## Preparar o ambiente typescript:  
+
+1.	Instale a versão LTS do Node.js, que é a recomendada para a maioria dos usuários, para poder executar o TypeScript:  
+	https://nodejs.org/pt  
+
+	Para ver a versão instalada digite o comando:  
+	node --version  
+
+2.	O PowerShell bloqueia a execução de scripts (como o npm.ps1) por padrão por motivos de segurança.  
+	A sua política de execução (ExecutionPolicy) está como Restricted, o que impede o npm de rodar corretamente.  
+	https://learn.microsoft.com/pt-br/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.5  
+
+	Solução rápida e segura:  
+	Abra o PowerShell como Administrador  
+	(Procure por PowerShell, clique com o botão direito e "Executar como administrador").  
+  
+	Rode esse comando:  
+	Set-ExecutionPolicy RemoteSigned -Scope CurrentUser  
+
+	RemoteSigned significa:  
+	Scripts baixados da internet precisam ser assinados por uma autoridade confiável, mas scripts criados localmente são liberados.  
+
+	Quando ele perguntar:  
+	"Tem certeza que deseja alterar a política de execução?"  
+	Digite S (de Sim) e pressione Enter.  
+
 # TypeScript Next.js example
 
 This is a really simple project that shows the usage of Next.js with TypeScript.  
