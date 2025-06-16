@@ -1,8 +1,10 @@
-@import "tailwindcss";
+/* src/app/globals.css */
+@import "tailwindcss"; 
 
+/*
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #a24646;
+  --foreground: #d62b2b;
 }
 
 @theme inline {
@@ -24,3 +26,70 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+*/
+
+/* Custom animations and effects from eventos.html */
+.blog-card {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+.nav-link {
+    position: relative;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #f59e0b; /* amber-500 */
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.category-chip {
+    transition: all 0.2s ease;
+}
+.category-chip:hover {
+    transform: scale(1.05);
+}
+.author-card:hover .author-img {
+    transform: scale(1.05);
+}
+.author-img {
+    transition: transform 0.3s ease;
+}
+.btn-hover {
+    transition: all 0.3s ease;
+}
+.btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(245, 158, 11, 0.2);
+}
+.pagination-btn:hover {
+    background-color: #f59e0b !important;
+    color: white !important;
+}
+
+/* Base styles for the body */
+body {
+  font-family: sans-serif; /* Tailwind's default font-sans */
+  background-color: #f9fafb; /* Tailwind's bg-gray-50 */
+}
+
+/* Required for Font Awesome to work correctly */
+/* For Next.js with Font Awesome, you often need to import the CSS directly */
+@import '@fortawesome/fontawesome-svg-core/styles.css'; /* Import Font Awesome CSS */
