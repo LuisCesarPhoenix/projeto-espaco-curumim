@@ -1,7 +1,4 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
+/*
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -29,6 +26,38 @@ export default function RootLayout({
       >
         {children}
       </body>
+    </html>
+  );
+}
+*/
+
+// src/app/layout.tsx
+import type { Metadata } from 'next'; // Importe Metadata do next
+import { Inter } from 'next/font/google'; // Ou sua fonte configurada
+import './globals.css';
+import Navbar from '@/components/Navbar'; // Importa o componente Navbar
+// import Footer from '@/components/Footer'; // Importa o componente Footer
+
+const inter = Inter({ subsets: ['latin'] }); // Ou sua fonte configurada
+
+// Adicione a exportação de metadata aqui
+export const metadata: Metadata = {
+  title: 'Associação Espaço Curumim', // Título para esta página ou aplicação
+  description: 'Histórias inspiradoras, notícias e reflexões sobre o trabalho da Associação Espaço Curumim.', // Adicione uma descrição
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="pt-BR">      
+      <body className={inter.className} suppressHydrationWarning={true}>
+        <Navbar /> 
+          {children}
+        { /* <Footer /> */}
+      </body>   
     </html>
   );
 }
